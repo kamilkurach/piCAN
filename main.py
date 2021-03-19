@@ -1,3 +1,5 @@
+# test server for operating LED (on, off, blink)
+
 from flask import Flask
 from gpiozero import LED
 
