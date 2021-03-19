@@ -23,3 +23,5 @@ def piCAN_off():
 def piCAN_blink():
     led.blink()
     return 'led blink'
+
+app.run(host='0.0.0.0')
