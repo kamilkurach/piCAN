@@ -17,7 +17,7 @@ def piCAN_on():
 @app.route('/off')
 def piCAN_off():
     led.off()
-    return 'led of'
+    return 'led off'
 
 @app.route('/blink')
 def piCAN_blink():
