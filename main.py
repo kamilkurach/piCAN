@@ -5,18 +5,21 @@ led = LED(17)
 app = Flask(__name__)
 
 @app.route('/')
-def hello_chess():
+def hello_piCAN():
     led.off()
     return 'Hello, from piCAN!'
 
 @app.route('/on')
-def hello_chess():
+def piCAN_on():
     led.on()
+    return 'led on'
 
 @app.route('/off')
-def hello_chess():
+def piCAN_off():
     led.off()
+    return 'led of'
 
 @app.route('/blink')
-def hello_chess():
+def piCAN_blink():
     led.blink()
+    return 'led blink'
