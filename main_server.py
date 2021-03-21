@@ -18,7 +18,7 @@ def piCAN_on():
     try:
         r = requests.get(ip.ON)
         result = "led on [STATUS_CODE: {0}]".format(r.status_code)
-        return result
+        return render_template("public/index.html")
     except requests.exceptions.ConnectionError as e:
         raise SystemExit(e)
 
@@ -27,7 +27,7 @@ def piCAN_off():
     try:
         r = requests.get(ip.OFF)
         result = "led off [STATUS_CODE: {0}]".format(r.status_code)
-        return result
+        return render_template("public/index.html")
     except requests.exceptions.ConnectionError as e:
         raise SystemExit(e)
 
@@ -36,7 +36,7 @@ def piCAN_blink():
     try:
         r = requests.get(ip.BLINK)
         result = "led blink [STATUS_CODE: {0}]".format(r.status_code)
-        return result
+        return render_template("public/index.html")
     except requests.exceptions.ConnectionError as e:
         raise SystemExit(e)
 
