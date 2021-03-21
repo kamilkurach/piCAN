@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 import IPs as ip
 import requests
 
@@ -9,7 +9,7 @@ def hello_piCAN():
     try:
         r = requests.get(ip.MAIN_PAGE)
         result = "Hello, from piCAN! [STATUS_CODE: {0}]".format(r.status_code)
-        return result
+        return render_template("public/index.html")
     except requests.exceptions.ConnectionError as e:
         raise SystemExit(e)
 
