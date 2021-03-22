@@ -13,7 +13,7 @@ def hello_piCAN():
             r = requests.get(ip.MAIN_PAGE)
             return render_template("public/index.html", status_code=r.status_code)
         except requests.exceptions.ConnectionError as e:
-            raise SystemExit(e)
+            return render_template("public/index.html", status_code=503)
 
 @app.route('/on', methods=['POST'])
 def piCAN_on():
@@ -22,7 +22,7 @@ def piCAN_on():
             r = requests.get(ip.ON)
             return render_template("public/index.html", status_code=r.status_code)
         except requests.exceptions.ConnectionError as e:
-            raise SystemExit(e)
+            return render_template("public/index.html", status_code=503)
 
 @app.route('/off', methods=['POST'])
 def piCAN_off():
@@ -31,7 +31,7 @@ def piCAN_off():
             r = requests.get(ip.OFF)
             return render_template("public/index.html", status_code=r.status_code)
         except requests.exceptions.ConnectionError as e:
-            raise SystemExit(e)
+            return render_template("public/index.html", status_code=503)
 
 @app.route('/blink', methods=['POST'])
 def piCAN_blink():
@@ -40,7 +40,7 @@ def piCAN_blink():
             r = requests.get(ip.BLINK)
             return render_template("public/index.html", status_code=r.status_code)
         except requests.exceptions.ConnectionError as e:
-            raise SystemExit(e)
+            return render_template("public/index.html", status_code=503)
 
 if __name__ == '__main__':
     app.run()
