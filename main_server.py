@@ -9,8 +9,7 @@ def hello_piCAN():
     if request.method == 'GET':
         try:
             r = requests.get(ip.MAIN_PAGE)
-            result = "Hello, from piCAN! [STATUS_CODE: {0}]".format(r.status_code)
-            return render_template("public/index.html")
+            return render_template("public/index.html", status_code=r.status_code)
         except requests.exceptions.ConnectionError as e:
             raise SystemExit(e)
 
@@ -19,8 +18,7 @@ def piCAN_on():
     if request.method == 'POST':
         try:
             r = requests.get(ip.ON)
-            result = "led on [STATUS_CODE: {0}]".format(r.status_code)
-            return render_template("public/index.html")
+            return render_template("public/index.html", status_code=r.status_code)
         except requests.exceptions.ConnectionError as e:
             raise SystemExit(e)
 
@@ -29,8 +27,7 @@ def piCAN_off():
     if request.method == 'POST':
         try:
             r = requests.get(ip.OFF)
-            result = "led off [STATUS_CODE: {0}]".format(r.status_code)
-            return render_template("public/index.html")
+            return render_template("public/index.html", status_code=r.status_code)
         except requests.exceptions.ConnectionError as e:
             raise SystemExit(e)
 
@@ -39,8 +36,7 @@ def piCAN_blink():
     if request.method == 'POST':
         try:
             r = requests.get(ip.BLINK)
-            result = "led blink [STATUS_CODE: {0}]".format(r.status_code)
-            return render_template("public/index.html")
+            return render_template("public/index.html", status_code=r.status_code)
         except requests.exceptions.ConnectionError as e:
             raise SystemExit(e)
 
