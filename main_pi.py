@@ -2,6 +2,7 @@
 
 from flask import Flask
 from flask import request
+from flask import jsonify
 from gpiozero import LED
 
 led = LED(17)
@@ -12,7 +13,8 @@ def hello_piCAN():
     if request.method == 'GET':
         try:
             led.off()
-            return 200
+            data = {'operation_type': 'off'}
+            return jsonify(data), 200
         except gpiozero.GPIOZeroError as e:
             raise SystemExit(e) 
 
