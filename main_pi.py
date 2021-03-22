@@ -6,22 +6,22 @@ from gpiozero import LED
 led = LED(17)
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def hello_piCAN():
     led.off()
     return 'Hello, from piCAN!'
 
-@app.route('/on')
+@app.route('/on', methods=['GET'])
 def piCAN_on():
     led.on()
     return 'led on'
 
-@app.route('/off')
+@app.route('/off', methods=['GET'])
 def piCAN_off():
     led.off()
     return 'led off'
 
-@app.route('/blink')
+@app.route('/blink', methods=['GET'])
 def piCAN_blink():
     led.blink()
     return 'led blink'
