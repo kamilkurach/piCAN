@@ -1,6 +1,7 @@
 # test server for operating LED (on, off, blink)
 
 from flask import Flask
+from flask import request
 from gpiozero import LED
 
 led = LED(17)
@@ -8,8 +9,12 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def hello_piCAN():
-    led.off()
-    return 'Hello, from piCAN!'
+    if request.method == 'GET':
+        try:
+            led.off()
+            return 200
+        except gpiozero.GPIOZeroError as e:
+            raise SystemExit(e) 
 
 @app.route('/on', methods=['GET'])
 def piCAN_on():
