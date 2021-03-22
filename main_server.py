@@ -6,12 +6,13 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def hello_piCAN():
-    try:
-        r = requests.get(ip.MAIN_PAGE)
-        result = "Hello, from piCAN! [STATUS_CODE: {0}]".format(r.status_code)
-        return render_template("public/index.html")
-    except requests.exceptions.ConnectionError as e:
-        raise SystemExit(e)
+    if request.method == 'GET':
+        try:
+            r = requests.get(ip.MAIN_PAGE)
+            result = "Hello, from piCAN! [STATUS_CODE: {0}]".format(r.status_code)
+            return render_template("public/index.html")
+        except requests.exceptions.ConnectionError as e:
+            raise SystemExit(e)
 
 @app.route('/on', methods=['POST'])
 def piCAN_on():
