@@ -1,4 +1,6 @@
-from flask import Flask, render_template, request
+from flask import Flask
+from flask import render_template
+from flask import request
 import IPs as ip
 import requests
 
