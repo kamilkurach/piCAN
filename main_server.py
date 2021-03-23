@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 
 @app.route('/', methods=['GET', 'POST'])
-def welcome_and_grant_token():
+def piCAN_welcome():
     if request.method == 'GET':
         return render_template("public/welcome.html")
     
