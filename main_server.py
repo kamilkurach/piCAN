@@ -6,8 +6,8 @@ import requests
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
-def hello_piCAN():
+@app.route('/main', methods=['GET'])
+def piCAN_main():
     if request.method == 'GET':
         try:
             r = requests.get(ip.MAIN_PAGE)
