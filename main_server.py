@@ -1,10 +1,20 @@
 from flask import Flask
 from flask import render_template
 from flask import request
+from flask import redirect
 import IPs as ip
 import requests
 
 app = Flask(__name__)
+
+
+@app.route('/', methods=['GET', 'POST'])
+def welcome_and_grant_token():
+    if request.method == 'GET':
+        return render_template("public/welcome.html")
+    
+    if request.method == 'POST':
+        return redirect(url_for('main'))
 
 @app.route('/main', methods=['GET'])
 def piCAN_main():
