@@ -16,9 +16,9 @@ def welcome_and_grant_token():
     if request.method == 'POST':
         return redirect(url_for('main'))
 
-@app.route('/main', methods=['GET'])
+@app.route('/main', methods=['POST'])
 def piCAN_main():
-    if request.method == 'GET':
+    if request.method == 'POST':
         try:
             r = requests.get(ip.MAIN_PAGE)
             return render_template("public/index.html", status_code=r.status_code)
