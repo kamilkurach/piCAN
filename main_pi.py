@@ -46,7 +46,15 @@ def piCAN_blink():
             data = {'operation_type': 'blink'}
             return jsonify(data), 200
         except gpiozero.GPIOZeroError as e:
-            raise SystemExit(e) 
+            raise SystemExit(e)
+
+@app.route('/cam01', methods=['GET'])
+def piCAN_cam01():
+    if request.method == 'GET':
+        try:
+            return Response(h_func.generate_stream(), mimetype='image/jpeg')
+        except requests.exceptions.ConnectionError as e:
+            raise SystemExit(0) 
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
