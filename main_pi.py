@@ -3,6 +3,8 @@
 from flask import Flask
 from flask import request
 from flask import jsonify
+from flask import Response
+import requests
 from gpiozero import LED
 
 led = LED(17)
