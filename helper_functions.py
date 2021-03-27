@@ -52,3 +52,12 @@ def do_90_clockwise():
         sleep(.02)
         GPIO.output(STEP, GPIO.LOW)
         sleep(.02)
+
+def do_90_counter_clockwise():
+    GPIO.output(DIR, COUNTER_CLOCKWISE)
+    for x in range(100):
+        GPIO.output(STEP, GPIO.HIGH)
+        sleep(.02)
+        GPIO.output(STEP, GPIO.LOW)
+        sleep(.02)
+        
