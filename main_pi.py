@@ -58,7 +58,7 @@ def piCAN_360_clockwise():
             h_func.do_360_clockwise()
             data = {'operation_type': '360_clockwise'}
             return jsonify(data), 200
-        except gpiozero.GPIOZeroError as e:
+        except:
             raise SystemExit(e) 
 
 @app.route('/360_ccw', methods=['GET'])
@@ -68,7 +68,7 @@ def piCAN_360_counter_clockwise():
             h_func.do_360_counter_clockwise()
             data = {'operation_type': '360_counter_clockwise'}
             return jsonify(data), 200
-        except gpiozero.GPIOZeroError as e:
+        except:
             raise SystemExit(e) 
 
 @app.route('/90_cw', methods=['GET'])
@@ -78,7 +78,7 @@ def piCAN_90_clockwise():
             h_func.do_90_clockwise()
             data = {'operation_type': '90_clockwise'}
             return jsonify(data), 200
-        except gpiozero.GPIOZeroError as e:
+        except:
             raise SystemExit(e) 
 
 @app.route('/90_ccw', methods=['GET'])
@@ -88,7 +88,7 @@ def piCAN_90_counter_clockwise():
             h_func.do_90_counter_clockwise()
             data = {'operation_type': '90_counter_clockwise'}
             return jsonify(data), 200
-        except gpiozero.GPIOZeroError as e:
+        except:
             raise SystemExit(e)
 
 if __name__ == '__main__':
