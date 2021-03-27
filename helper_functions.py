@@ -18,6 +18,9 @@ def GPIO_setup():
     # 360 / 0.9 (0.9*/step)
     STEPS_PER_REVOLUTIN = 400
 
+    # 90 
+    STEPS_PER_REVOLUTIN_90 = 100
+
     # GPIO BCM PIN  
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(DIR, GPIO.OUT)
@@ -47,7 +50,7 @@ def do_360_counter_clockwise():
 
 def do_90_clockwise():
     GPIO.output(DIR, CLOCKWISE)
-    for x in range(100):
+    for x in range(STEPS_PER_REVOLUTIN_90):
         GPIO.output(STEP, GPIO.HIGH)
         sleep(.02)
         GPIO.output(STEP, GPIO.LOW)
@@ -55,7 +58,7 @@ def do_90_clockwise():
 
 def do_90_counter_clockwise():
     GPIO.output(DIR, COUNTER_CLOCKWISE)
-    for x in range(100):
+    for x in range(STEPS_PER_REVOLUTIN_90):
         GPIO.output(STEP, GPIO.HIGH)
         sleep(.02)
         GPIO.output(STEP, GPIO.LOW)
