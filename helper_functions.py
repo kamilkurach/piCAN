@@ -9,6 +9,10 @@ def GPIO_setup():
     # Step PIN
     STEP = 27
 
+    # I1, I2
+    I1 = 5
+    I2 = 6
+
     # Sleep duration
     SLEEP = .02
 
@@ -30,10 +34,10 @@ def GPIO_setup():
     GPIO.setup(STEP, GPIO.OUT)
 
     # set current to 1.5A
-    GPIO.setup(5, GPIO.OUT)
-    GPIO.setup(6, GPIO.OUT)
-    GPIO.output(5, GPIO.HIGH)
-    GPIO.output(6, GPIO.LOW)
+    GPIO.setup(I1, GPIO.OUT)
+    GPIO.setup(I2, GPIO.OUT)
+    GPIO.output(I1, GPIO.HIGH)
+    GPIO.output(I2, GPIO.LOW)
 
 def do_360_clockwise():
     GPIO.output(DIR, CLOCKWISE)
