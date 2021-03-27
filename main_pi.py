@@ -59,7 +59,7 @@ def piCAN_360_clockwise():
             data = {'operation_type': '360_clockwise'}
             return jsonify(data), 200
         except:
-            raise SystemExit(e) 
+            raise SystemExit(0) 
 
 @app.route('/360_ccw', methods=['GET'])
 def piCAN_360_counter_clockwise():
@@ -69,7 +69,7 @@ def piCAN_360_counter_clockwise():
             data = {'operation_type': '360_counter_clockwise'}
             return jsonify(data), 200
         except:
-            raise SystemExit(e) 
+            raise SystemExit(0) 
 
 @app.route('/90_cw', methods=['GET'])
 def piCAN_90_clockwise():
@@ -79,7 +79,7 @@ def piCAN_90_clockwise():
             data = {'operation_type': '90_clockwise'}
             return jsonify(data), 200
         except:
-            raise SystemExit(e) 
+            raise SystemExit(0) 
 
 @app.route('/90_ccw', methods=['GET'])
 def piCAN_90_counter_clockwise():
@@ -89,7 +89,7 @@ def piCAN_90_counter_clockwise():
             data = {'operation_type': '90_counter_clockwise'}
             return jsonify(data), 200
         except:
-            raise SystemExit(e)
+            raise SystemExit(0)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
