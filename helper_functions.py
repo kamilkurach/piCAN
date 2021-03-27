@@ -36,3 +36,11 @@ def do_360_clockwise():
         sleep(.02)
         GPIO.output(STEP, GPIO.LOW)
         sleep(.02)
+
+def do_360_counter_clockwise():
+    GPIO.output(DIR, COUNTER_CLOCKWISE)
+    for x in range(STEPS_PER_REVOLUTIN):
+        GPIO.output(STEP, GPIO.HIGH)
+        sleep(.02)
+        GPIO.output(STEP, GPIO.LOW)
+        sleep(.02)
