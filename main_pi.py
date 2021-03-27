@@ -59,5 +59,15 @@ def piCAN_360_clockwise():
         except gpiozero.GPIOZeroError as e:
             raise SystemExit(e) 
 
+@app.route('/360_ccw', methods=['GET'])
+def piCAN_360_counter_clockwise():
+    if request.method == 'GET':
+        try:
+            h_func.do_360_counter_clockwise()
+            data = {'operation_type': '360_counter_clockwise'}
+            return jsonify(data), 200
+        except gpiozero.GPIOZeroError as e:
+            raise SystemExit(e) 
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
