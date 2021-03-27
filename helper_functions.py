@@ -4,7 +4,6 @@ import RPi.GPIO as GPIO
 
 class Motor:
     def __init__(self):
-        self.GPIO_setup()
         # Direction PIN 
         self.DIR = 17 
         # Step PIN
@@ -22,6 +21,8 @@ class Motor:
         self.STEPS_PER_REVOLUTIN = 400
         # 90 
         self.STEPS_PER_REVOLUTIN_90 = 100
+        # setup
+        self.GPIO_setup()
 
     def GPIO_setup(self):
         # GPIO BCM PIN  
