@@ -8,6 +8,7 @@ import helper_functions as h_func
 
 led = LED(17)
 app = Flask(__name__)
+h_func.GPIO_setup()
 
 @app.route('/', methods=['GET'])
 def hello_piCAN():
