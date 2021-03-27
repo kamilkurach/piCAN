@@ -27,14 +27,14 @@ class Motor:
     def GPIO_setup(self):
         # GPIO BCM PIN  
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(DIR, GPIO.OUT)
-        GPIO.setup(STEP, GPIO.OUT)
+        GPIO.setup(self.DIR, GPIO.OUT)
+        GPIO.setup(self.STEP, GPIO.OUT)
 
         # set current to 1.5A
-        GPIO.setup(I1, GPIO.OUT)
-        GPIO.setup(I2, GPIO.OUT)
-        GPIO.output(I1, GPIO.HIGH)
-        GPIO.output(I2, GPIO.LOW)
+        GPIO.setup(self.I1, GPIO.OUT)
+        GPIO.setup(self.I2, GPIO.OUT)
+        GPIO.output(self.I1, GPIO.HIGH)
+        GPIO.output(self.I2, GPIO.LOW)
 
     def do_360_clockwise(self):
         GPIO.output(self.DIR, self.CLOCKWISE)
