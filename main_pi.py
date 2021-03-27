@@ -4,6 +4,7 @@ from flask import Flask
 from flask import request
 from flask import jsonify
 from gpiozero import LED
+import helper_functions as h_func
 
 led = LED(17)
 app = Flask(__name__)
@@ -44,6 +45,16 @@ def piCAN_blink():
         try:
             led.blink()
             data = {'operation_type': 'blink'}
+            return jsonify(data), 200
+        except gpiozero.GPIOZeroError as e:
+            raise SystemExit(e) 
+
+@app.route('/360_cw', methods=['GET'])
+def piCAN_360_clockwise():
+    if request.method == 'GET':
+        try:
+            h_func.do_360_clockwise()
+            data = {'operation_type': '360_clockwise'}
             return jsonify(data), 200
         except gpiozero.GPIOZeroError as e:
             raise SystemExit(e) 
