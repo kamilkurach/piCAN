@@ -44,3 +44,11 @@ def do_360_counter_clockwise():
         sleep(.02)
         GPIO.output(STEP, GPIO.LOW)
         sleep(.02)
+
+def do_90_clockwise():
+    GPIO.output(DIR, CLOCKWISE)
+    for x in range(100):
+        GPIO.output(STEP, GPIO.HIGH)
+        sleep(.02)
+        GPIO.output(STEP, GPIO.LOW)
+        sleep(.02)
