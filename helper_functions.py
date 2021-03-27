@@ -28,3 +28,11 @@ def GPIO_setup():
     GPIO.setup(6, GPIO.OUT)
     GPIO.output(5, GPIO.HIGH)
     GPIO.output(6, GPIO.LOW)
+
+def do_360_clockwise():
+    GPIO.output(DIR, CLOCKWISE)
+    for x in range(STEPS_PER_REVOLUTIN):
+        GPIO.output(STEP, GPIO.HIGH)
+        sleep(.02)
+        GPIO.output(STEP, GPIO.LOW)
+        sleep(.02)
