@@ -9,6 +9,9 @@ def GPIO_setup():
     # Step PIN
     STEP = 27
 
+    # Sleep duration
+    SLEEP = .02
+
     # Clockwise
     CLOCKWISE = 0
 
@@ -36,25 +39,25 @@ def do_360_clockwise():
     GPIO.output(DIR, CLOCKWISE)
     for x in range(STEPS_PER_REVOLUTIN):
         GPIO.output(STEP, GPIO.HIGH)
-        sleep(.02)
+        sleep(SLEEP)
         GPIO.output(STEP, GPIO.LOW)
-        sleep(.02)
+        sleep(SLEEP)
 
 def do_360_counter_clockwise():
     GPIO.output(DIR, COUNTER_CLOCKWISE)
     for x in range(STEPS_PER_REVOLUTIN):
         GPIO.output(STEP, GPIO.HIGH)
-        sleep(.02)
+        sleep(SLEEP)
         GPIO.output(STEP, GPIO.LOW)
-        sleep(.02)
+        sleep(SLEEP)
 
 def do_90_clockwise():
     GPIO.output(DIR, CLOCKWISE)
     for x in range(STEPS_PER_REVOLUTIN_90):
         GPIO.output(STEP, GPIO.HIGH)
-        sleep(.02)
+        sleep(SLEEP)
         GPIO.output(STEP, GPIO.LOW)
-        sleep(.02)
+        sleep(SLEEP)
 
 def do_90_counter_clockwise():
     GPIO.output(DIR, COUNTER_CLOCKWISE)
