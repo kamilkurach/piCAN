@@ -10,10 +10,10 @@ def GPIO_setup():
     STEP = 27
 
     # Clockwise
-    CLOCKWISE = 1
+    CLOCKWISE = 0
 
     # Counter Clockwise
-    COUNTER_CLOCKWISE = 0
+    COUNTER_CLOCKWISE = 1
 
     # 360 / 0.9 (0.9*/step)
     STEPS_PER_REVOLUTIN = 400
@@ -60,4 +60,3 @@ def do_90_counter_clockwise():
         sleep(.02)
         GPIO.output(STEP, GPIO.LOW)
         sleep(.02)
-        
