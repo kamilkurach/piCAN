@@ -52,7 +52,7 @@ class Motor:
             GPIO.output(self.STEP, GPIO.LOW)
             sleep(self.SLEEP)
 
-    def do_90_clockwise():
+    def do_90_clockwise(self):
         GPIO.output(self.DIR, self.CLOCKWISE)
         for x in range(self.STEPS_PER_REVOLUTIN_90):
             GPIO.output(self.STEP, GPIO.HIGH)
@@ -60,7 +60,7 @@ class Motor:
             GPIO.output(self.STEP, GPIO.LOW)
             sleep(self.SLEEP)
 
-    def do_90_counter_clockwise():
+    def do_90_counter_clockwise(self):
         GPIO.output(self.DIR, self.COUNTER_CLOCKWISE)
         for x in range(self.STEPS_PER_REVOLUTIN_90):
             GPIO.output(self.STEP, GPIO.HIGH)
