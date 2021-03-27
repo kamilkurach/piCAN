@@ -4,6 +4,7 @@ from flask import Flask
 from flask import request
 from flask import jsonify
 from gpiozero import LED
+import gpiozero
 import helper_functions as h_func
 
 led = LED(17)
