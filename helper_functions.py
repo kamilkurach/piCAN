@@ -68,10 +68,10 @@ class Motor:
             GPIO.output(self.STEP, GPIO.LOW)
             sleep(self.SLEEP)
 
-    def do_360_clockwise_set_sleep(self, sleep):
+    def do_360_clockwise_set_sleep(self, sleep_value):
         GPIO.output(self.DIR, self.CLOCKWISE)
         for x in range(self.STEPS_PER_REVOLUTIN):
             GPIO.output(self.STEP, GPIO.HIGH)
-            sleep(sleep)
+            sleep(sleep_value)
             GPIO.output(self.STEP, GPIO.LOW)
-            sleep(sleep)
+            sleep(sleep_value)
