@@ -13,7 +13,7 @@ Actions performed by user can be seen on webcam view.
 
 `main_server.py` web app adds user to queue and provides control buttons and view
 
-`main_pi.py` Flask server on Raspberry Pi access to hardware (REST API)
+`main_pi.py` Flask server on Raspberry Pi which provides access to hardware (REST API)
 
 ### Hardware setup:
 
