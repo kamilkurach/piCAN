@@ -52,5 +52,41 @@ def piCAN_blink():
         except requests.exceptions.ConnectionError as e:
             return render_template("public/index.html", status_code=503)
 
+@app.route('/360_cw', methods=['POST'])
+def piCAN_360_cw():
+    if request.method == 'POST':
+        try:
+            r = requests.get(ip.do_360_cw)
+            return render_template("public/index.html", status_code=r.status_code)
+        except requests.exceptions.ConnectionError as e:
+            return render_template("public/index.html", status_code=503)
+
+@app.route('/360_ccw', methods=['POST'])
+def piCAN_360_ccw():
+    if request.method == 'POST':
+        try:
+            r = requests.get(ip.do_360_ccw)
+            return render_template("public/index.html", status_code=r.status_code)
+        except requests.exceptions.ConnectionError as e:
+            return render_template("public/index.html", status_code=503)
+
+@app.route('/90_cw', methods=['POST'])
+def piCAN_90_cw():
+    if request.method == 'POST':
+        try:
+            r = requests.get(ip.do_90_cw)
+            return render_template("public/index.html", status_code=r.status_code)
+        except requests.exceptions.ConnectionError as e:
+            return render_template("public/index.html", status_code=503)
+
+@app.route('/90_ccw', methods=['POST'])
+def piCAN_90_ccw():
+    if request.method == 'POST':
+        try:
+            r = requests.get(ip.do_90_ccw)
+            return render_template("public/index.html", status_code=r.status_code)
+        except requests.exceptions.ConnectionError as e:
+            return render_template("public/index.html", status_code=503)
+
 if __name__ == '__main__':
     app.run()
