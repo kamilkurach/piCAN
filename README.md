@@ -1,6 +1,12 @@
 piCAN
 ----- 
 
+todo:
+- [] camera
+- [] queue 
+- [] UI
+- [] docker
+
 <img src="resources/webapp.jpg" width="30%">
 
 Revolving can controlled by users via Flask web app.
