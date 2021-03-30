@@ -8,7 +8,7 @@ import helper_functions as h_func
 import requests
 from gpiozero import LED
 import gpiozero
-from helper_functions import Motor
+from pi_helper_functions import Motor
 
 led = LED(17)
 app = Flask(__name__)
