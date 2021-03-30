@@ -8,7 +8,7 @@ import helper_functions as h_func
 import requests
 from gpiozero import LED
 import gpiozero
-from pi_helper_functions import Motor
+from pi_helper_functions import Motor, generate_stream
 
 led = LED(17)
 app = Flask(__name__)
@@ -99,6 +99,14 @@ def piCAN_90_counter_clockwise():
             motor.do_90_counter_clockwise()
             data = {'operation_type': '90_counter_clockwise'}
             return jsonify(data), 200
+        except:
+            raise SystemExit(0)
+
+@app.route('/pi_camera', methods=['GET'])
+def piCAN_camera():
+    if request.method == 'GET':
+        try:
+            return Response(generate_stream(), mimetype='multipart/x-mixed-replace; boundary=frame')
         except:
             raise SystemExit(0)
 
