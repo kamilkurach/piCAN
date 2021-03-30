@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import request
 from flask import jsonify
-from pi_helper_functions import Motor
+from pi_helper_functions import Motor, generate_stream
 
 motor = Motor()
 app = Flask(__name__)
