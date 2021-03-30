@@ -1,65 +1,18 @@
-# test server for operating LED (on, off, blink)
-
 from flask import Flask
 from flask import request
 from flask import jsonify
-from flask import Response
-import pi_helper_functions as h_func
-import requests
-from gpiozero import LED
-import gpiozero
-from pi_helper_functions import Motor, generate_stream
+from helper_functions import Motor
 
-led = LED(17)
-app = Flask(__name__)
 motor = Motor()
+app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def hello_piCAN():
     if request.method == 'GET':
         try:
-            led.off()
             data = {'operation_type': 'off'}
             return jsonify(data), 200
-        except gpiozero.GPIOZeroError as e:
-            raise SystemExit(e) 
-
-@app.route('/on', methods=['GET'])
-def piCAN_on():
-    if request.method == 'GET':
-        try:
-            led.on()
-            data = {'operation_type': 'on'}
-            return jsonify(data), 200
-        except gpiozero.GPIOZeroError as e:
-            raise SystemExit(e) 
-
-@app.route('/off', methods=['GET'])
-def piCAN_off():
-    if request.method == 'GET':
-        try:
-            led.off()
-            data = {'operation_type': 'off'}
-            return jsonify(data), 200
-        except gpiozero.GPIOZeroError as e:
-            raise SystemExit(e) 
-
-@app.route('/blink', methods=['GET'])
-def piCAN_blink():
-    if request.method == 'GET':
-        try:
-            led.blink()
-            data = {'operation_type': 'blink'}
-            return jsonify(data), 200
-        except gpiozero.GPIOZeroError as e:
-            raise SystemExit(e)
-
-@app.route('/cam01', methods=['GET'])
-def piCAN_cam01():
-    if request.method == 'GET':
-        try:
-            return Response(h_func.generate_stream(), mimetype='image/jpeg')
-        except requests.exceptions.ConnectionError as e:
+        except:
             raise SystemExit(0) 
 
 @app.route('/360_cw', methods=['GET'])
