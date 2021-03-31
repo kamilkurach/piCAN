@@ -10,7 +10,9 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def piCAN_welcome():
     if request.method == 'GET':
-        return render_template("public/welcome.html")
+        # only for queue and db test
+        ip_address = request.remote_addr
+        return render_template("public/welcome.html", ip_address=ip_address)
     
     if request.method == 'POST':
         return redirect(url_for('main'))
