@@ -8,15 +8,17 @@ import requests
 
 app = Flask(__name__)
 
+
 @app.route('/', methods=['GET', 'POST'])
 def piCAN_welcome():
     if request.method == 'GET':
         # only for queue and db test
         ip_address = request.remote_addr
         return render_template("public/welcome.html", ip_address=ip_address)
-    
+
     if request.method == 'POST':
         return redirect(url_for('main'))
+
 
 @app.route('/main', methods=['POST'])
 def piCAN_main():
@@ -24,8 +26,9 @@ def piCAN_main():
         try:
             r = requests.get(ip.MAIN_PAGE)
             return render_template("public/index.html", status_code=r.status_code)
-        except requests.exceptions.ConnectionError as e:
+        except requests.exceptions.ConnectionError:
             return render_template("public/index.html", status_code=503)
+
 
 @app.route('/360_cw', methods=['POST'])
 def piCAN_360_cw():
@@ -33,8 +36,9 @@ def piCAN_360_cw():
         try:
             r = requests.get(ip.do_360_cw)
             return render_template("public/index.html", status_code=r.status_code)
-        except requests.exceptions.ConnectionError as e:
+        except requests.exceptions.ConnectionError:
             return render_template("public/index.html", status_code=503)
+
 
 @app.route('/360_ccw', methods=['POST'])
 def piCAN_360_ccw():
@@ -42,8 +46,9 @@ def piCAN_360_ccw():
         try:
             r = requests.get(ip.do_360_ccw)
             return render_template("public/index.html", status_code=r.status_code)
-        except requests.exceptions.ConnectionError as e:
+        except requests.exceptions.ConnectionError:
             return render_template("public/index.html", status_code=503)
+
 
 @app.route('/90_cw', methods=['POST'])
 def piCAN_90_cw():
@@ -51,8 +56,9 @@ def piCAN_90_cw():
         try:
             r = requests.get(ip.do_90_cw)
             return render_template("public/index.html", status_code=r.status_code)
-        except requests.exceptions.ConnectionError as e:
+        except requests.exceptions.ConnectionError:
             return render_template("public/index.html", status_code=503)
+
 
 @app.route('/90_ccw', methods=['POST'])
 def piCAN_90_ccw():
@@ -60,8 +66,9 @@ def piCAN_90_ccw():
         try:
             r = requests.get(ip.do_90_ccw)
             return render_template("public/index.html", status_code=r.status_code)
-        except requests.exceptions.ConnectionError as e:
+        except requests.exceptions.ConnectionError:
             return render_template("public/index.html", status_code=503)
+
 
 if __name__ == '__main__':
     app.run()
