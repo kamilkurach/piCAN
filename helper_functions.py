@@ -1,14 +1,15 @@
 # helper functions
-from time import sleep 
+from time import sleep
 import RPi.GPIO as GPIO
+
 
 class Motor:
     def __init__(self):
-        # Direction PIN 
-        self.DIR = 17 
+        # Direction PIN
+        self.DIR = 17
         # Step PIN
         self.STEP = 27
-         # I1, I2
+        # I1, I2
         self.I1 = 5
         self.I2 = 6
         # Sleep duration
@@ -19,13 +20,13 @@ class Motor:
         self.COUNTER_CLOCKWISE = 1
         # 360 / 0.9 (0.9*/step)
         self.STEPS_PER_REVOLUTIN = 400
-        # 90 
+        # 90
         self.STEPS_PER_REVOLUTIN_90 = 100
         # setup
         self.GPIO_setup()
 
     def GPIO_setup(self):
-        # GPIO BCM PIN  
+        # GPIO BCM PIN
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.DIR, GPIO.OUT)
         GPIO.setup(self.STEP, GPIO.OUT)
@@ -38,7 +39,7 @@ class Motor:
 
     def do_360_clockwise(self):
         GPIO.output(self.DIR, self.CLOCKWISE)
-        for x in range(self.STEPS_PER_REVOLUTIN):
+        for _x in range(self.STEPS_PER_REVOLUTIN):
             GPIO.output(self.STEP, GPIO.HIGH)
             sleep(self.SLEEP)
             GPIO.output(self.STEP, GPIO.LOW)
@@ -46,7 +47,7 @@ class Motor:
 
     def do_360_counter_clockwise(self):
         GPIO.output(self.DIR, self.COUNTER_CLOCKWISE)
-        for x in range(self.STEPS_PER_REVOLUTIN):
+        for _x in range(self.STEPS_PER_REVOLUTIN):
             GPIO.output(self.STEP, GPIO.HIGH)
             sleep(self.SLEEP)
             GPIO.output(self.STEP, GPIO.LOW)
@@ -54,7 +55,7 @@ class Motor:
 
     def do_90_clockwise(self):
         GPIO.output(self.DIR, self.CLOCKWISE)
-        for x in range(self.STEPS_PER_REVOLUTIN_90):
+        for _x in range(self.STEPS_PER_REVOLUTIN_90):
             GPIO.output(self.STEP, GPIO.HIGH)
             sleep(self.SLEEP)
             GPIO.output(self.STEP, GPIO.LOW)
@@ -62,7 +63,7 @@ class Motor:
 
     def do_90_counter_clockwise(self):
         GPIO.output(self.DIR, self.COUNTER_CLOCKWISE)
-        for x in range(self.STEPS_PER_REVOLUTIN_90):
+        for _x in range(self.STEPS_PER_REVOLUTIN_90):
             GPIO.output(self.STEP, GPIO.HIGH)
             sleep(self.SLEEP)
             GPIO.output(self.STEP, GPIO.LOW)
@@ -70,7 +71,7 @@ class Motor:
 
     def do_360_clockwise_set_sleep(self, sleep_value):
         GPIO.output(self.DIR, self.CLOCKWISE)
-        for x in range(self.STEPS_PER_REVOLUTIN):
+        for _x in range(self.STEPS_PER_REVOLUTIN):
             GPIO.output(self.STEP, GPIO.HIGH)
             sleep(sleep_value)
             GPIO.output(self.STEP, GPIO.LOW)
