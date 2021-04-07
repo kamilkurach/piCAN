@@ -10,8 +10,6 @@ class Aha:
         # I1, I2
         self.I1 = 5
         self.I2 = 6
-        # Sleep duration
-        self.SLEEP = .27
 
         # Notes Freq
         self.A3 = 220
@@ -46,10 +44,10 @@ class Aha:
         init_freq = 50
         pwm = GPIO.PWM(self.STEP, init_freq)
         for _ in range(3):
-            for p in self.notes:
-                note = p[0]
-                t = p[1]
-                pwm.ChangeFrequency(note)
+            for tup in self.notes:
+                _note = tup[0]
+                _time = tup[1]
+                pwm.ChangeFrequency(_note)
                 pwm.start(1)
-                sleep(t)
+                sleep(_time)
                 pwm.stop()
