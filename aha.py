@@ -44,8 +44,9 @@ class Aha:
     def take_on_me(self): 
         init_freq = 50
         pwm = GPIO.PWM(self.STEP, init_freq)
-        for note in self.notes:
-            pwm.ChangeFrequency(note)
-            pwm.start(1)
-            sleep(self.SLEEP)
-            pwm.stop()
+        for _ in range(3):
+            for note in self.notes:
+                pwm.ChangeFrequency(note)
+                pwm.start(1)
+                sleep(self.SLEEP)
+                pwm.stop()
