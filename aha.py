@@ -11,7 +11,8 @@ class Aha:
         self.I1 = 5
         self.I2 = 6
         # Sleep duration
-        self.SLEEP = .025
+        self.SLEEP = .25
+
         # Notes Freq
         self.A3 = 220
         self.F3 = 174.61
@@ -21,9 +22,13 @@ class Aha:
         self.C4 = 261.63
         self.D4 = 293.66
         self.E3 = 164.81
+
         # init setup
         self.GPIO_setup()
-
+        self.notes = [self.A3, self.A3, self.F3, self.D3, self.D3, self.G3, self.G3, self.G3,
+        self.B3, self.B3, self.C4, self.D4, self.C4, self.C4, self.C4, self.G3, self.E3,
+        self.A3, self.A3, self.A3, self.G3, self.G3, self.A3, self.G3]
+        
     def GPIO_setup(self):
         # GPIO BCM PIN
         GPIO.setmode(GPIO.BCM)
@@ -36,14 +41,10 @@ class Aha:
         GPIO.output(self.I1, GPIO.HIGH)
         GPIO.output(self.I2, GPIO.LOW)
 
-    def take_on_me(self):
-        init_freq = 50 
+    def take_on_me(self): 
+        init_freq = 50
         pwm = GPIO.PWM(self.STEP, init_freq)
-        notes = [self.A3, self.A3, self.F3, self.D3, self.D3, self.G3, self.G3, self.G3,
-        self.B3, self.B3, self.C4, self.D4, self.C4, self.C4, self.C4, self.G3, self.E3,
-        self.A3, self.A3, self.A3, self.G3, self.G3, self.A3, self.G3]
-
-        for note in notes:
+        for note in self.notes:
             pwm.ChangeFrequency(note)
             pwm.start(1)
             sleep(self.SLEEP)
