@@ -25,9 +25,10 @@ class Aha:
 
         # init setup
         self.GPIO_setup()
-        self.notes = [self.A3, self.A3, self.F3, self.D3, self.D3, self.G3, self.G3, self.G3,
-        self.B3, self.B3, self.C4, self.D4, self.C4, self.C4, self.C4, self.G3, self.E3,
-        self.A3, self.A3, self.A3, self.G3, self.G3, self.A3, self.G3]
+        self.notes = [(self.A3, 0.2), (self.A3, 0.2), (self.F3, 0.2), (self.D3, 0.3), (self.D3, 0.3), (self.G3, 0.2),
+        (self.G3, 0.2), (self.G3, 0.2), (self.B3, 0.2), (self.B3, 0.2), (self.C4, 0.2), (self.D4, 0.2), 
+        (self.C4, 0.2), (self.C4, 0.2), (self.C4, 0.2), (self.G3, 0.3), (self.E3, 0.3),
+        (self.A3, 0.2), (self.A3, 0.2), (self.A3, 0.2), (self.G3, 0.2), (self.G3, 0.2), (self.A3, 0.2), (self.G3, 0.2)]
         
     def GPIO_setup(self):
         # GPIO BCM PIN
@@ -45,8 +46,10 @@ class Aha:
         init_freq = 50
         pwm = GPIO.PWM(self.STEP, init_freq)
         for _ in range(3):
-            for note in self.notes:
+            for p in self.notes:
+                note = p[0]
+                t = p[1]
                 pwm.ChangeFrequency(note)
                 pwm.start(1)
-                sleep(self.SLEEP)
+                sleep(t)
                 pwm.stop()
