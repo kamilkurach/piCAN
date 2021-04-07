@@ -11,7 +11,7 @@ class Aha:
         self.I1 = 5
         self.I2 = 6
         # Sleep duration
-        self.SLEEP = .25
+        self.SLEEP = .27
 
         # Notes Freq
         self.A3 = 220
