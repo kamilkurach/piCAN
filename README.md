@@ -1,11 +1,9 @@
 piCAN
 ----- 
 
-todo:
-- [] camera
-- [] queue 
-- [] UI
-- [] docker
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/yacotaco/piCAN.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/yacotaco/piCAN/context:python)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/yacotaco/piCAN.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/yacotaco/piCAN/context:javascript)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/yacotaco/piCAN.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/yacotaco/piCAN/alerts/)
 
 <img src="resources/webapp.jpg" width="30%">
 
