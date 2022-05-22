@@ -9,7 +9,8 @@ def generate_stream():
     if cap.isOpened() == True:
         while True: 
             ret, frame = cap.read() 
-            image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            src = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+	    image = cv2.rotate(src, cv2.ROTATE_180)
             retval, buffer = cv2.imencode('.jpg', image)
             yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + buffer.tobytes() + b'\r\n')
 
