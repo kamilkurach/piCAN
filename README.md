@@ -1,17 +1,13 @@
 piCAN
 ----- 
 
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/yacotaco/piCAN.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/yacotaco/piCAN/context:python)
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/yacotaco/piCAN.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/yacotaco/piCAN/context:javascript)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/yacotaco/piCAN.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/yacotaco/piCAN/alerts/)
-
 <img src="resources/webapp.jpg" width="30%">
 
 Revolving can controlled by users via Flask web app.
 
-Access to hardware can be granted to users one by at a time so website implements virtual queue.
+*not implememted* Access to hardware can be granted to users one by at a time so website implements virtual queue.
 
-Actions performed by user can be seen on webcam view.
+*branch feature-camera* Actions performed by user can be seen on webcam view.
 
 ### Software setup:
 
